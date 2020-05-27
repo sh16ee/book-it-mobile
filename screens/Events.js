@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, StatusBar, AsyncStorage } from 'react-native';
+import { Button, View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, AsyncStorage } from 'react-native';
 import * as Font from 'expo-font';
 import moment from 'moment';
 import 'moment/locale/ru';
@@ -17,11 +17,8 @@ class Events extends Component {
   }
   componentDidMount(){
     this.eventsList();
-    Font.loadAsync({
-      'comforta': require('../assets/fonts/Comforta.ttf'),
-      'lato-bold': require('../assets/fonts/Lato-Bold.ttf')
-    });
   }
+
   async eventsList(){
     const id = await AsyncStorage.getItem('userID')
     const token = 'Token ' + await AsyncStorage.getItem('userToken')
@@ -39,6 +36,10 @@ class Events extends Component {
             this.setState({events: response});
         })
         .catch(err => this.setState({events: null}));
+    await Font.loadAsync({
+      'comforta': require('../assets/fonts/Comforta.ttf'),
+      'lato-bold': require('../assets/fonts/Lato-Bold.ttf')
+    });
   }
 
   calendarEvents(date){
@@ -88,7 +89,6 @@ class Events extends Component {
     }
     return (
       <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'flex-start' }}>
-        <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#00BCD4" translucent = {true}/>
         <CalendarStrip
                     scrollable={true}
                     calendarAnimation={{type: 'sequence', duration: 100}}

@@ -78,7 +78,7 @@ class MainScreen extends Component {
   render() {
     return (
       <ImageBackground source={require('../assets/mainbackground.png')} style={{flex: 1, resizeMode: 'cover'}}>
-        <StatusBar barStyle = "light-content" hidden = {false} backgroundColor = "#00BCD4" translucent = {true}/>
+        <StatusBar barStyle = "light-content" hidden = {false} />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Image source={require('../assets/logo.png')} style={{height: 170, width: 310, marginBottom: 50}}/>
           <TextInput

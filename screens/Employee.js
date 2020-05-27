@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, AsyncStorage } from 'react-native';
+import { Button, View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, StatusBar, AsyncStorage } from 'react-native';
 import * as Font from 'expo-font';
 
 import Events from './Events'
@@ -44,6 +44,7 @@ class Employee extends Component {
   render() {
     return (
       <ImageBackground source={require('../assets/eventsbackground.png')} style={{flex: 1, resizeMode: 'cover'}}>
+        <StatusBar barStyle = "dark-content" hidden = {false}/>
         <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'flex-start' }}>
           <View style={styles.card}>
             <View>

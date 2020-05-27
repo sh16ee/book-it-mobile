@@ -38,12 +38,6 @@ function NavigationStack() {
               headerShown: false
             }
           }/>
-        <Stack.Screen name="Schedule" component={Schedule}
-          options={
-            {
-              headerShown: false
-            }
-          }/>
     </Stack.Navigator>
   )
 }
